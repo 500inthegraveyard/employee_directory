@@ -8,51 +8,35 @@ import MovieDetail from "./MovieDetail";
 import API from "../utils/API";
 
 class OmdbContainer extends Component {
-  state = {
-    result: {},
-    search: ""
-  };
+   state = {
+       users: [{}],
+       order: "descend",
+       filteredUsers: [{}]
+     }
 
-  componentDidMount(){
-    this.searchMovies("female");
-  }
-
-  searchMovies = query => {
-    API.search(query)
-      .then(res => this.setState({ result: res.data }))
-      .catch(err => console.log(err));
-  };
-
-  render() {
-    return (
-      <Container>
-        <Row>
-          <Col size="md-8">
-            <Card
-              heading={this.state.result.Title || "Search for a Movie to Begin"}
-            >
-              <MovieDetail
-                title={this.state.result.Title}
-                src={this.state.result.Poster}
-                director={this.state.result.Director}
-                genre={this.state.result.Genre}
-                released={this.state.result.Released}
-              />
-            </Card>
-          </Col>
-          <Col size="md-4">
-            <Card heading="Search">
-              <SearchForm
-                value={this.state.search}
-                handleInputChange={this.handleInputChange}
-                handleFormSubmit={this.handleFormSubmit}
-              />
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-    );
-  }
+     componentDidMount() {
+         API.search().then(results => {
+           this.setState({
+             users: results.data.results,
+             filteredUsers: results.data.results
+           });
+         });
+       }
+       render() {
+           return (
+             <>
+               <Nav handleSearchChange={this.handleSearchChange} />
+               <div className="data-area">
+                 <DataTable
+                   headings={this.headings}
+                   users={this.state.filteredUsers}
+                   handleSort={this.handleSort}
+                 />
+               </div>
+             </>
+           );
+         }
+  
 }
 
 export default OmdbContainer;
