@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import Container from "./Container";
-import Row from "./Row";
-import Col from "./Col";
-import Card from "./Card";
-import SearchForm from "./SearchForm";
-import MovieDetail from "./MovieDetail";
+import Nav from "./NavSearch";
+import DataTable from "./DataTable";
 import API from "../utils/API";
+
 
 class OmdbContainer extends Component {
    state = {
@@ -27,11 +24,13 @@ class OmdbContainer extends Component {
              <>
                <Nav handleSearchChange={this.handleSearchChange} />
                <div className="data-area">
+
                  <DataTable
                    headings={this.headings}
                    users={this.state.filteredUsers}
                    handleSort={this.handleSort}
                  />
+                    
                </div>
              </>
            );
