@@ -9,9 +9,9 @@ function DataTable(props) {
         <th>Cell</th>
       </tr>
       <tr>
-        <td>{props.name}</td>
-        <td>{props.email}</td>
-        <td>{props.cell}</td>
+        <td>{props.filteredUsers.name}</td>
+        <td>{props.filteredUsers.email}</td>
+        <td>{props.filteredUsers.cell}</td>
       </tr>
 
     </table>

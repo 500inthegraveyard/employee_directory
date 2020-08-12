@@ -1,6 +1,6 @@
 import React from "react";
-import OmdbContainer from "./components/OmdbContainer";
-import User from "./components/OmdbContainer";
+import OmdbContainer from "./components/User";
+import User from "./components/User";
 
 function App() {
   return <User />;
