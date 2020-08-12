@@ -4,7 +4,7 @@ import DataTable from "./DataTable";
 import API from "../utils/API";
 
 
-class OmdbContainer extends Component {
+class User extends Component {
    state = {
        users: [{}],
        order: "descend",
@@ -38,4 +38,4 @@ class OmdbContainer extends Component {
   
 }
 
-export default OmdbContainer;
+export default User;
