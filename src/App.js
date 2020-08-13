@@ -4,17 +4,17 @@ import User from "./components/User";
 import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
-  // ReactDOM.render(
-  //   <AppContainer>
-  //     <Router>
-        
-  //     </Router>
-  //   </AppContainer>
-  // )
 
+
+  return( 
+  <Router>
+    <User />
+  </Router>
   
-  return <User />;
+  )
   
 }
+
+
   
 export default App;
